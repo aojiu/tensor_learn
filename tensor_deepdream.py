@@ -134,12 +134,13 @@ def main():
 
 
     #pick a layer to enhance our image
-    layer = "mixed4d_3x3_bottleneck_pre_relu"
+    layer = "mixed4d"
     channel = 139
 
     img0 = PIL.Image.open("../download.jpg")
     img0 = np.float32(img0)
 
     #apply gradient ascent to that layer
-    render_deepdream(T(layer)[:,:,:,139], img0)
+    render_deepdream(tf.square(T('mixed4a')), img0)
+    # render_deepdream(T(layer)[:, :, :, 139], img0)
 main()
